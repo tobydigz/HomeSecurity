@@ -1,0 +1,1 @@
+include ':app', ':companionApp', ':sinch-android-rtc-3.9.14'
