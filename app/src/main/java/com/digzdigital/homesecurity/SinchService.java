@@ -53,6 +53,7 @@ public class SinchService extends Service {
             userId = userName;
             sinchClient = Sinch.getSinchClientBuilder()
                     .context(getApplicationContext())
+                    .userId(userId)
                     .applicationKey(APP_KEY)
                     .applicationSecret(APP_SECRET)
                     .environmentHost(ENVIRONMENT)

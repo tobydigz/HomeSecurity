@@ -54,6 +54,7 @@ public class SinchService extends Service {
             sinchClient = Sinch.getSinchClientBuilder()
                     .context(getApplicationContext())
                     .applicationKey(APP_KEY)
+                    .userId(userId)
                     .applicationSecret(APP_SECRET)
                     .environmentHost(ENVIRONMENT)
                     .build();

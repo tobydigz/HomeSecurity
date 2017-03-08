@@ -14,6 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 public class BaseActivity extends AppCompatActivity implements ServiceConnection{
 
     private SinchService.SinchServiceInterface sinchServiceInterface;
+    private ComponentName componentName;
+    private IBinder iBinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -23,10 +25,9 @@ public class BaseActivity extends AppCompatActivity implements ServiceConnection
 
     @Override
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        if (SinchService.class.getName().equals(componentName.getClassName())){
-            sinchServiceInterface = (SinchService.SinchServiceInterface) iBinder;
-            onServiceConnected();
-        }
+        this.componentName = componentName;
+        this.iBinder = iBinder;
+        startClient();
     }
 
     @Override
@@ -48,4 +49,16 @@ public class BaseActivity extends AppCompatActivity implements ServiceConnection
     protected SinchService.SinchServiceInterface getSinchServiceInterface(){
         return sinchServiceInterface;
     }
+
+    protected void startSinchService(){
+        getApplicationContext().bindService(new Intent(this, SinchService.class), this, BIND_AUTO_CREATE);
+    }
+
+    protected void startClient(){
+        if (SinchService.class.getName().equals(componentName.getClassName())){
+            sinchServiceInterface = (SinchService.SinchServiceInterface) iBinder;
+            onServiceConnected();
+        }
+    }
+
 }

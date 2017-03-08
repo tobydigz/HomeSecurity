@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_monitor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.digzdigital.homesecurity.PlaceCallActivity">
+    android:paddingTop="@dimen/activity_vertical_margin">
 
     <TextView
+        android:id="@+id/monitorStateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Monitoring household"
-        android:layout_centerInParent="true"
-        style="@style/TextAppearance.AppCompat.Headline"/>
+        android:layout_gravity="center_horizontal"
+        android:padding="8dp"
+        android:text="Monitoring On"
+        android:textSize="25sp"
+        android:textStyle="bold"/>
 
-</RelativeLayout>
+
+    <ToggleButton
+        android:id="@+id/toggleMonitorButton"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_gravity="center"
+        android:background="@drawable/ic_monitor_on_off"
+        android:textOff=""
+        android:textOn=""/>
+</LinearLayout>
