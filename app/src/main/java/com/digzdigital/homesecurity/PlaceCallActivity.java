@@ -68,7 +68,7 @@ public class PlaceCallActivity extends BaseActivity implements SinchService.Star
     @Override
     protected void onServiceConnected() {
         if (!getSinchServiceInterface().isStarted()) {
-            getSinchServiceInterface().startClient("digzHardware");
+            getSinchServiceInterface().startClient("jidellHardware");
         }
         getSinchServiceInterface().setStartListener(this);
 
@@ -138,7 +138,7 @@ public class PlaceCallActivity extends BaseActivity implements SinchService.Star
             startSinchApi();
             return;
         }
-        String username = "tobydigz";
+        String username = "jidell";
 
         Call call = getSinchServiceInterface().callUserVideo(username);
         String callId = call.getCallId();
